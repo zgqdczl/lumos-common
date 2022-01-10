@@ -31,7 +31,9 @@ buildscript {
         maven {
             url "https://maven.aliyun.com/repository/public/"
         }
-        maven { url "https://jitpack.io" }
+        maven {
+            url "https://jitpack.io"
+        }
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
@@ -60,7 +62,6 @@ subprojects {
     apply plugin: 'idea'
     apply plugin: 'java'
     apply plugin: 'maven'
-//    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'io.github.swagger2markup'
     configurations.all {
@@ -68,8 +69,6 @@ subprojects {
     }
     ext['log4j2.version'] = '2.15.0'
     dependencies {
-        // 配置JitPack
-        implementation 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         // springcloud依赖
         implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
         // apache工具依赖
@@ -86,7 +85,8 @@ subprojects {
         compile "io.github.swagger2markup:swagger2markup-gradle-plugin:$swagger2markup"
         // 日志依赖
         implementation "org.slf4j:slf4j-api:$slf4jApiVersion"
-
+        // 配置JitPack
+        implementation 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 
     dependencyManagement {
