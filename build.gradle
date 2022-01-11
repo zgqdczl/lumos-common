@@ -1,5 +1,7 @@
 ext {
-    apiVersion = '1.0.0-SNAPSHOT'
+    rootProject.group = 'com.lin.common'
+    apiVersion = '1.0.1-SNAPSHOT'
+    apiName = 'lumos-common-api'
     repositoryVersion = '1.0.0-SNAPSHOT'
     serviceVersion = '1.0.0-SNAPSHOT'
     rpcVersion = '1.0.0-SNAPSHOT'
@@ -64,6 +66,7 @@ subprojects {
     apply plugin: 'maven'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'io.github.swagger2markup'
+    apply plugin: 'maven-publish'
     configurations.all {
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
     }
@@ -96,3 +99,4 @@ subprojects {
     }
 
 }
+

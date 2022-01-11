@@ -2,6 +2,7 @@ package com.lin.common.core.exception;
 
 import com.lin.common.core.domain.vo.RestResponse;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
  * @author: chenzhilin
  * @date: 2022/1/9
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class BaseException extends Exception {
 

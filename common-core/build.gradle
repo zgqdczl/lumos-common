@@ -1,14 +1,38 @@
-plugins {
-    id 'java'
-}
-
-group 'com.lin.common'
-version '1.0'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+def envType = "$apiVersion".endsWith("SNAPSHOT") ? "snapshots" : "releases";
+
+publishing {
+    publications {
+        core(MavenPublication) {
+            groupId = "$rootProject.group"
+            artifactId = "$apiName"
+            version = "$apiVersion"
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "http://localhost:8081/repository/maven-$envType/"
+            credentials {
+                username = "admin"
+                password = "admin"
+            }
+        }
+    }
+}
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: "http://localhost:8081/repository/maven-$envType/") {
+//                authentication(userName: 'admin', password: 'admin')
+//            }
+//            pom.groupId = "$rootProject.group"
+//            pom.artifactId = "$apiName"
+//            pom.version = "$apiVersion"
+//        }
+//    }
+//}
