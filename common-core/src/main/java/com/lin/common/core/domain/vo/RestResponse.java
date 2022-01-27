@@ -31,7 +31,7 @@ public class RestResponse<T> implements Serializable {
     }
 
     public RestResponse(T data) {
-        this(ResponseCodeEnum.OK.getMsg(), ResponseCodeEnum.OK.getMsg(), data);
+        this(ResponseCodeEnum.OK.getCode(), ResponseCodeEnum.OK.getMsg(), data);
     }
 
     public RestResponse(String code, String msg) {
